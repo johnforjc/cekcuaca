@@ -1,0 +1,77 @@
+.search-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+.search-box .search-input {
+  padding: 0.5em;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  border: solid 1px aqua;
+  outline: none;
+  height: inherit;
+  width: max(300px, 30%);
+}
+
+.search-box .search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+
+  padding: 0.75em 1em;
+  height: max-content;
+  background-color: aqua;
+  height: inherit;
+}
+
+.search-box .search-btn:hover {
+  cursor: pointer;
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #aaaaaa;
+  max-height: 200px;
+  width: 298px;
+
+  overflow-y: auto; /* prevent horizontal scrollbar */
+  overflow-x: hidden; /* add padding to account for vertical scrollbar */
+  z-index: 1000 !important;
+}
+
+.ui-menu {
+  list-style: none;
+  padding: 0.5em;
+  display: block;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+}
+
+.ui-menu .ui-menu {
+  position: absolute;
+}
+
+.ui-menu .ui-menu-item {
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px 0.4em;
+  cursor: pointer;
+  min-height: 0; /* support: IE7 
+    /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
