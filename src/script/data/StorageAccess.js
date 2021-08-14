@@ -30,7 +30,7 @@ class StorageAccess {
   static deleteCity(cityName) {
     let cityList = this.getCity();
 
-    let newCityList = cityList.filter((kota) => kota != cityName);
+    let newCityList = cityList.filter((city) => city.name != cityName);
 
     localStorage.setItem("cityList", JSON.stringify(newCityList));
   }

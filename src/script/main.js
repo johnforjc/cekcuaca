@@ -15,10 +15,20 @@ function main() {
   searchBtn.addEventListener("click", (e) => {
     let inputElement = document.querySelector("#brow");
 
-    let inputValue = inputElement.value;
+    let inputName = inputElement.value;
+    let inputLatitude = inputElement.dataset.latitude;
+    let inputLongitude = inputElement.dataset.longitude;
 
-    StorageAccess.addCity(inputValue);
+    let cityDetail = {
+      name: inputName,
+      latitude: inputLatitude,
+      longitude: inputLongitude,
+    };
+
+    StorageAccess.addCity(cityDetail);
     cityListElement.CityList = StorageAccess.getCity();
+
+    document.querySelector("#brow").value = "";
   });
 
   loadDataList();

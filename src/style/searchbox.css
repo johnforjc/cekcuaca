@@ -15,8 +15,12 @@
   outline: none;
   height: inherit;
   width: max(300px, 30%);
+  text-transform: capitalize;
 }
 
+.search-box .search-input[attribute="value"] {
+  text-transform: capitalize;
+}
 .search-box .search-btn {
   display: flex;
   justify-content: center;
@@ -67,6 +71,7 @@
   margin: 0;
   padding: 3px 1em 3px 0.4em;
   cursor: pointer;
+  text-transform: capitalize;
   min-height: 0; /* support: IE7 
     /* support: IE10, see #8844 */
   list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
