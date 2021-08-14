@@ -1,0 +1,18 @@
+city-list {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+city-item {
+  width: 300px;
+  padding: 0.75em;
+  background-color: aqua;
+  margin: 0.75em 0.5em;
+}
+
+city-item .delete-btn:hover {
+  cursor: pointer;
+}
