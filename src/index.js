@@ -1,4 +1,4 @@
 import "./style/style.css";
-import loadDataList from "./script/loadDataList.js";
+import main from "./script/main.js";
 
-loadDataList();
+main();
