@@ -11,18 +11,21 @@ city-item {
   width: 300px;
   height: 350px;
   padding: 1.5em;
-  background-color: aqua;
   margin: 2.5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  transition: background-size 1s ease-in-out;
 }
 
 city-item.siang {
   background: url("./../assets/morning-view.jpg");
-  background-color: #dbdbdb;
+  background-color: #929292;
   background-blend-mode: multiply;
+  background-size: 100%;
+  background-position: center;
+  color: var(--primary-text);
 }
 
 city-item.malam {
@@ -30,8 +33,12 @@ city-item.malam {
   background-position: bottom;
   background-color: #4b4b4b;
   background-blend-mode: multiply;
-  background-size: cover;
-  color: white;
+  background-size: 100%;
+  color: var(--primary-text);
+}
+
+city-item:hover {
+  background-size: 105%;
 }
 
 city-item .info-header {

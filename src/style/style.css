@@ -2,9 +2,12 @@
 @import "./navbar.css";
 @import "./searchbox.css";
 @import "./cityList.css";
+@import "./footer.css";
 
 :root {
   font-size: 10px;
+  --primary-background: #102b6e;
+  --primary-text: #e4f0ff;
 }
 
 *,
@@ -16,7 +19,21 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background: var(--primary-background);
+}
+
 main {
-  width: clamp(300px, 80%, 80%);
-  margin: 3rem auto;
+  width: clamp(300px, 90%, 90%);
+  margin: auto;
+  background: var(--primary-text);
+  padding: 1em;
+  border-radius: 2em;
+}
+
+@media only screen and (max-width: 762px) {
+  main {
+    width: 100%;
+    border-radius: 0;
+  }
 }
