@@ -1,3 +1,7 @@
+header {
+  background-color: var(--primary-background);
+}
+
 nav {
   display: block;
   width: 90%;
@@ -5,7 +9,6 @@ nav {
   padding-bottom: 1.5em;
   margin: auto;
 
-  background-color: var(--primary-background);
   color: var(--primary-text);
 
   font-family: "Poppins", sans-serif;

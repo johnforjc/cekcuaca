@@ -12,6 +12,10 @@ function main() {
     cityListElement.CityList = StorageAccess.getCity();
   };
 
+  const refresh = () => {
+    cityListElement.render();
+  };
+
   searchBtn.addEventListener("click", (e) => {
     let inputElement = document.querySelector("#brow");
 
@@ -34,6 +38,7 @@ function main() {
   loadDataList();
   cityListElement.deleteEvent = deleteEvent;
   cityListElement.CityList = StorageAccess.getCity();
+  setInterval(refresh, 5000 * 60);
 }
 
 export default main;
