@@ -3,16 +3,14 @@ const common = require("./webpack.common.js");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
+
 module.exports = merge(common, {
   mode: "production",
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          MiniCSSExtractPlugin.loader, // Move CSS into file
-          "css-loader",
-        ],
+        use: [MiniCSSExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.js$/,

@@ -1,4 +1,5 @@
 import "./cityItem.js";
+import apiControll from "./../data/apiControll.js";
 
 class CityList extends HTMLElement {
   constructor() {
@@ -21,7 +22,7 @@ class CityList extends HTMLElement {
       const cityItem = document.createElement("city-item");
 
       cityItem.deleteEvent = this._deleteEvent;
-      cityItem.city = city;
+      apiControll(city, cityItem);
       this.appendChild(cityItem);
     });
   }

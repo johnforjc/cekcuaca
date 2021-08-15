@@ -4,6 +4,7 @@ city-list {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  min-height: calc(100vh - 176px);
 }
 
 city-item {
@@ -20,7 +21,7 @@ city-item {
 }
 
 city-item.siang {
-  background: url("./../assets/morning-view.jpg");
+  background: url("/src/assets/morning-view.jpg");
   background-color: #929292;
   background-blend-mode: multiply;
   background-size: 100%;
@@ -29,7 +30,7 @@ city-item.siang {
 }
 
 city-item.malam {
-  background: url("./../assets/night-view.jpg");
+  background: url("/src/assets/night-view.jpg");
   background-position: bottom;
   background-color: #4b4b4b;
   background-blend-mode: multiply;

@@ -1,4 +1,4 @@
-import apiId from "../data/apiAccess";
+import html from "./cityItem.html";
 
 class CityItem extends HTMLElement {
   constructor() {
@@ -9,64 +9,30 @@ class CityItem extends HTMLElement {
     this._deleteEvent = event;
   }
 
-  set city(city) {
-    this._city = city;
+  set result(result) {
+    this._result = result;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${this._city.latitude}&lon=${this._city.longitude}&appid=${apiId}`)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this._cuaca = responseJson.weather[0].main;
-        this._suhu = Math.round((responseJson.main.temp - 273) * 10) / 10;
-        this._kelembaban = responseJson.main.humidity;
-        this._icon = `http://openweathermap.org/img/wn/${responseJson.weather[0].icon}.png`;
-
-        // ambil timezone lokasi dari api
-        this._timezone = responseJson.timezone / 3600;
-
-        // ambil waktu lokal(komputer client) lalu ditambah dengan perbedaan waktunya
-        this._date = new Date();
-        this._timezoneDiff = this._date.getTimezoneOffset() / 60 + this._timezone;
-
-        this._hour = (this._date.getHours() + this._timezoneDiff) % 24;
-
-        this.render();
-      })
-      .catch((error) => this.renderError());
+    if (this._result.error) {
+      this.renderError();
+    } else {
+      this.render();
+    }
   }
 
   render() {
     this.innerHTML = `
-      <div class="info-header">
-        <h2>${this._city.name}</h2>
-        <div class="delete-btn" id="delete-btn" data-city="${this._city.name}">X</div>
-      </div>
-
-      <div class="info-body">
-        <img class="icon-cuaca" src="${this._icon}" />
-        <h3 class="info-cuaca">${this._cuaca}</h3>
-        <div class="detail-info-box">
-          <div class="detail-info">
-            <div class="info-title">
-              Temperature
-            </div>
-            <div class="info-context">
-              ${this._suhu}
-            </div>
-          </div>
-          <div class="detail-info">
-            <div class="info-title">
-              Kelembaban
-            </div>
-            <div class="info-context">
-              ${this._kelembaban}
-            </div>
-          </div>
-        </div>
-      </div>
+      ${html}
     `;
 
+    this.querySelector("#nama-kota").innerText = this._result.city.name;
+    this.querySelector("#cuaca").innerText = this._result.cuaca;
+    this.querySelector("#icon-cuaca").src = this._result.icon;
+    this.querySelector("#temperature").innerText = this._result.suhu;
+    this.querySelector("#kelembaban").innerText = this._result.kelembaban;
+    this.querySelector("#delete-btn").dataset.city = this._result.city.name;
+
     this.querySelector("#delete-btn").addEventListener("click", this._deleteEvent);
-    if (this._hour >= 6 && this._hour <= 18) {
+    if (this._result.hour >= 6 && this._result.hour <= 18) {
       this.classList.add("siang");
     } else {
       this.classList.add("malam");
