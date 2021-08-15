@@ -16,8 +16,14 @@ function main() {
     cityListElement.render();
   };
 
-  searchBtn.addEventListener("click", (e) => {
+  searchBtn.addEventListener("click", () => {
     let inputElement = document.querySelector("#brow");
+
+    if (inputElement.dataset.latitude == undefined) {
+      alert("Tolong pilih daerah yang ada di bantuan. Terima kasih.");
+      document.querySelector("#brow").value = "";
+      return;
+    }
 
     let inputName = inputElement.value;
     let inputLatitude = inputElement.dataset.latitude;
@@ -33,6 +39,8 @@ function main() {
     cityListElement.CityList = StorageAccess.getCity();
 
     document.querySelector("#brow").value = "";
+    delete inputElement.dataset.latitude;
+    delete inputElement.dataset.longitude;
   });
 
   loadDataList();
